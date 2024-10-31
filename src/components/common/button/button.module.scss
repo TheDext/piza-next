@@ -1,0 +1,16 @@
+@use "src/styles/veriables/global.scss";
+
+.secondary {
+  padding: 14px 18px;
+  border: 1px solid global.$orange;
+  border-radius: 15px;
+  color: global.$orange;
+  background: #ffffff;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    background: global.$orange;
+    color: #ffffff;
+  }
+  }
+
