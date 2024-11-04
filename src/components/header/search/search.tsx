@@ -12,7 +12,6 @@ const Search = () => {
 
     return (
         <div className={classes.search}>
-            <Search />
             <TextField
                 placeholder="Поиск пиццы..."
                 value={searchRequest}
