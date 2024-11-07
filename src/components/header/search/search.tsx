@@ -1,7 +1,9 @@
 'use client';
 import classes from './search.module.scss';
 import TextField from '@/components/common/textField/textField';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { productService } from '@/services/product';
+import { useDebounce } from 'react-use';
 
 const Search = () => {
     const [searchRequest, setSearchRequest] = useState('');
@@ -9,6 +11,16 @@ const Search = () => {
     const handleNameChange = (value: string) => {
         setSearchRequest(value);
     };
+
+    useDebounce(
+        () => {
+            productService(searchRequest).then((data) =>
+                console.log('data', data)
+            );
+        },
+        500,
+        [searchRequest]
+    );
 
     return (
         <div className={classes.search}>
