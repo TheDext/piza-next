@@ -1,6 +1,4 @@
-@use "src/styles/veriables/global.scss";
-
 .search {
   flex: 1 1 auto;
-  background: global.$grey;
+  position: relative;
 }

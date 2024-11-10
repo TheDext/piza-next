@@ -14,7 +14,7 @@ const Header = () => {
                         className={classes.logo}
                         width={202}
                         src={Logo}
-                        alt="asd"
+                        alt="logo"
                     />
                     <Search />
                     <Button kind="secondary">

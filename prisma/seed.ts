@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Prisma } from '@prisma/client';
 import { categories, _ingredients, products } from './constants';
 import { prisma } from './prisma-client';

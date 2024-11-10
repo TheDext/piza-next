@@ -1,35 +1,24 @@
+//@ts-nocheck
 'use client';
+import SearchInput from '@/components/header/searchInput/searchInput';
+import SearchResult from '@/components/header/searchResult/searchResult';
 import classes from './search.module.scss';
-import TextField from '@/components/common/textField/textField';
-import { useEffect, useState } from 'react';
-import { productService } from '@/services/product';
-import { useDebounce } from 'react-use';
+import { useClickAway } from 'react-use';
+import { useRef } from 'react';
+import useUiActions from '@/store/uiActions.store';
 
 const Search = () => {
-    const [searchRequest, setSearchRequest] = useState('');
+    const ref = useRef(null);
+    const { setBlured } = useUiActions();
 
-    const handleNameChange = (value: string) => {
-        setSearchRequest(value);
-    };
-
-    useDebounce(
-        () => {
-            productService(searchRequest).then((data) =>
-                console.log('data', data)
-            );
-        },
-        500,
-        [searchRequest]
-    );
+    useClickAway(ref, () => {
+        setBlured(false);
+    });
 
     return (
-        <div className={classes.search}>
-            <TextField
-                placeholder="Поиск пиццы..."
-                value={searchRequest}
-                name="search"
-                onChange={handleNameChange}
-            />
+        <div className={classes.search} ref={ref}>
+            <SearchInput />
+            <SearchResult />
         </div>
     );
 };
