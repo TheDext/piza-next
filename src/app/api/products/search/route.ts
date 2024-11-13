@@ -14,5 +14,7 @@ export async function GET(req: NextRequest) {
             },
         });
         return NextResponse.json(products);
-    } catch (e) {}
+    } catch (e) {
+        console.log(e);
+    }
 }

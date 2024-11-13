@@ -1,0 +1,29 @@
+@use "src/styles/veriables/global";
+
+.categories {
+
+  &__list {
+    margin-top: 20px;
+    font-weight: 500;
+    display: inline-flex;
+    padding: 6px;
+    column-gap: 6px;
+
+    background: global.$grey;
+    border-radius: 15px;
+  }
+
+  &__item {
+    padding: 11px 25px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.2s ease 0s;
+    color: #000000;
+
+    &:hover, &._checked {
+      background: #ffffff;
+      color: global.$orange;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.09);
+    }
+  }
+}

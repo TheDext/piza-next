@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Button from '@/components/common/button/button';
 import { User } from 'lucide-react';
 import classes from './header.module.scss';
@@ -7,7 +8,7 @@ import Search from '@/components/header/search/search';
 
 const Header = () => {
     return (
-        <header>
+        <header className={classes.header}>
             <div className="_container">
                 <div className={classes.header__row}>
                     <Image

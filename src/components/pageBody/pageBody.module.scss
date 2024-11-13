@@ -1,0 +1,14 @@
+.pageBody {
+  margin-top: 40px;
+
+  &__row {
+    display: flex;
+    column-gap: 45px;
+  }
+
+  &__filters {
+    border: 1px solid #333333;
+    border-radius: 20px;
+    flex: 0 0 250px;
+  }
+}

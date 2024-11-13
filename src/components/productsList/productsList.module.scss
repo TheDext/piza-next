@@ -1,0 +1,27 @@
+.productsList {
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+}
+.productsListColumn {
+  flex: 0 1 33.333%;
+  padding: 0 20px;
+}
+.productsListItem {
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFF7EE;
+
+    img {
+      max-width: 180px;
+
+    }
+  }
+}

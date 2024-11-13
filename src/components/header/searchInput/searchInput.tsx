@@ -3,7 +3,7 @@
 import classes from './searchInput.module.scss';
 import TextField from '@/components/common/textField/textField';
 import { useState } from 'react';
-import { productService } from '@/services/product';
+import { productService } from '@/services/product.service';
 import { useDebounce } from 'react-use';
 import useProducts from '@/store/products.store';
 import classNames from '@/shared/lib/classNames';
@@ -12,19 +12,26 @@ import { X } from 'lucide-react';
 
 const SearchInput = () => {
     const [searchRequest, setSearchRequest] = useState('');
-    const { setProducts } = useProducts();
+    const { setProducts, setProductsLoading } = useProducts();
     const { blured, setBlured } = useUiActions();
 
-    const handleChange = (value: string) => {
-        setSearchRequest(value);
-    };
+    const handleChange = (value: string) => setSearchRequest(value);
 
     useDebounce(
         () => {
             if (searchRequest) {
-                productService(searchRequest).then((data) => {
-                    setProducts(data);
-                });
+                setProductsLoading(true);
+
+                productService
+                    .search(searchRequest)
+                    .then((data) => {
+                        setProducts(data);
+                        setProductsLoading(false);
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                        throw e;
+                    });
             }
         },
         500,

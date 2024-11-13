@@ -24,4 +24,39 @@
       background: rgba(51, 51, 51, 0.05);
     }
   }
+
+
+  &__skeleton {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+
+    &::before {
+      content: "";
+      display: block;
+      flex: 0 0 60px;
+      height: 60px;
+      background: #d7cece;
+      border-radius: 50%;
+      animation: faded 0.7s ease  alternate-reverse infinite;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 30px;
+      background: #d9d4d4;
+      border-radius: 10px;
+      animation: faded 0.7s ease  alternate-reverse infinite;
+    }
+  }
+}
+
+@keyframes faded {
+  0% {
+    background: rgba(215, 206, 206, 0.21);
+  }
+  100% {
+    background: #d7cece;
+  }
 }

@@ -1,0 +1,14 @@
+.topBar {
+  margin-top: 40px;
+
+  &__title {
+    font-weight: 900;
+    font-size: 36px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
