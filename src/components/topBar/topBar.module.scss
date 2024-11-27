@@ -1,5 +1,10 @@
 .topBar {
   margin-top: 40px;
+  position: sticky;
+  top: 0;
+
+  background: #ffffff;
+  padding: 20px 0;
 
   &__title {
     font-weight: 900;
@@ -12,3 +17,4 @@
     justify-content: space-between;
   }
 }
+

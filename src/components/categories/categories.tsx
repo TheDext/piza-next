@@ -1,5 +1,4 @@
 //@ts-nocheck
-'use client';
 import classes from './categories.module.scss';
 import { useState } from 'react';
 import classNames from '@/shared/lib/classNames';
@@ -7,7 +6,7 @@ import Link from 'next/link';
 
 const Categories = ({ categories, onSetCurrenCategory }) => {
     const [checked, setChecked] = useState(1);
-    console.log(categories);
+
     return (
         <div className={classes.categories}>
             <nav className={classes.categories__list}>
@@ -24,6 +23,7 @@ const Categories = ({ categories, onSetCurrenCategory }) => {
                             onSetCurrenCategory(name);
                         }}
                         href={`/#${name}`}
+                        scroll={false}
                     >
                         {name}
                     </Link>

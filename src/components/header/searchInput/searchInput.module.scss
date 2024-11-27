@@ -5,6 +5,9 @@
   background: global.$grey;
   border-radius: 15px;
 
+  & > div {
+    height: 100%;
+  }
   input {
     padding-right: 50px !important;
   }
