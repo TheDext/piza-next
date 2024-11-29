@@ -11,6 +11,7 @@ const InputField: FC<TextFieldProps> = ({
     name,
     onChange,
     value,
+    id,
     ...props
 }) => {
     const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +26,7 @@ const InputField: FC<TextFieldProps> = ({
                     name={name}
                     type={type}
                     placeholder={placeholder}
-                    id="search"
+                    id={id}
                     value={value}
                     onChange={handleChange}
                     autoComplete="off"

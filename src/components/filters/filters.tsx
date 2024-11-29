@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import CheckBoxField from '@/components/common/checkbox/checkbox';
 import RangeSlider from '@/components/rangeSlider/rangeSlider';
+import classes from './filters.module.scss';
 
 const Filters = () => {
     const [state, setState] = useState({

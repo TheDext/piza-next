@@ -53,6 +53,7 @@ const SearchInput = () => {
                     value={searchRequest}
                     name="searchInput"
                     onChange={handleChange}
+                    id="search"
                 />
 
                 <X

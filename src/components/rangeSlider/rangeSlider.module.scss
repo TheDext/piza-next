@@ -1,0 +1,23 @@
+.rangeSlider {
+  margin-top: 20px;
+  display: flex;
+
+  flex-wrap: wrap;
+
+  &__input {
+    flex: 0 1 50%;
+    height: 30px;
+    padding: 0 3px;
+
+    & > div {
+      height: 100%;
+      background: rgba(51, 51, 51, 0.35);
+      border-radius: 20px;
+    }
+  }
+
+  &__slider {
+    margin-top: 10px;
+    flex: 1 1 100%;
+  }
+}

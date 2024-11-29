@@ -23,6 +23,7 @@ padding: 40px 0 60px 0;
 .content {
   display: flex;
 }
-.rc-slider-handle {
+.rc-slider-handle,
+.rc-slider-track{
   transition: all 0.3s ease 0s;
 }
