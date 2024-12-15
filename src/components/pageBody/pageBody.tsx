@@ -3,15 +3,13 @@ import ProductsList from '@/components/productsList/productsList';
 import classes from './pageBody.module.scss';
 import Filters from '@/components/filters/filters';
 
-const PageBody = ({ products }) => {
+const PageBody = ({ ingredients, categories }) => {
     return (
         <div className={classes.pageBody}>
             <div className="_container">
                 <div className={classes.pageBody__row}>
-                    <div className={classes.pageBody__filters}>
-                        <Filters />
-                    </div>
-                    <ProductsList products={products} />
+                    <Filters ingredients={ingredients} />
+                    <ProductsList categories={categories} />
                 </div>
             </div>
         </div>

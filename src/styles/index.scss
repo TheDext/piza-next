@@ -4,12 +4,20 @@
 #root {
   height: 100%;
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 150px;
+}
 
 .app {
   height: 100%;
   display: flex;
   flex-direction: column;
-padding: 40px 0 60px 0;
+  padding: 40px 0 60px 0;
+
+  a {
+    color: #000000;
+  }
 
   main {
     flex: 1 1 auto;
@@ -23,7 +31,23 @@ padding: 40px 0 60px 0;
 .content {
   display: flex;
 }
+
+
+.rc-slider-track, .rc-slider-tracks {
+  background-color: global.$orange !important;
+}
+.rc-slider-handle {
+  border: solid 2px global.$orange !important;
+  background: global.$orange !important;
+  opacity: 1 !important;
+  &-dragging {
+    box-shadow: none !important;
+  }
+}
 .rc-slider-handle,
 .rc-slider-track{
   transition: all 0.3s ease 0s;
+}
+.rc-slider-handle:focus-visible {
+  box-shadow: none !important;
 }

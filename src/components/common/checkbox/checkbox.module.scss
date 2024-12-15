@@ -1,0 +1,63 @@
+@use "src/styles/veriables/global";
+
+.checkbox {
+
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+
+    &::before {
+      content: '';
+      align-self: flex-start;
+      flex: 0 0 24px;
+      height: 24px;
+      border-radius: 8px;
+      margin: 0 10px 0 0;
+
+      background: #f1f1f1;
+      transition: all 0.3s ease 0s;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 24px;
+      height: 24px;
+      visibility: hidden;
+      transition: all 0.2s ease 0s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        color: #ffffff;
+
+        width: 17px;
+      }
+    }
+  }
+}
+
+.checkbox__input:checked {
+  & + .checkbox__label::before {
+    background: global.$orange;
+  }
+  & + .checkbox__label span {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}

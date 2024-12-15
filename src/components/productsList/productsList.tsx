@@ -1,16 +1,12 @@
 //@ts-nocheck
 import classes from './productsList.module.scss';
-import ProductCard from '@/components/productCard/productCard';
+import ProductCategoryList from '@/components/productCategoryList/productCategoryList';
 
-const ProductsList = ({ products }) => {
-    const filteredProductsList = [...products];
-
+const ProductsList = ({ categories }) => {
     return (
         <div className={classes.productsList}>
-            {filteredProductsList.map(({ id, name, imageUrl }) => (
-                <div className={classes.productsListColumn}>
-                    <ProductCard name={name} id={id} imageUrl={imageUrl} />
-                </div>
+            {categories.map(({ id, name }) => (
+                <ProductCategoryList key={id} id={id} name={name} />
             ))}
         </div>
     );

@@ -5,13 +5,17 @@ import { useEffect, useState } from 'react';
 import TextField from '@/components/common/textField/textField';
 import classes from './rangeSlider.module.scss';
 
-const RangeSlider = () => {
+const RangeSlider = ({ onChange }) => {
     const [min, setMin] = useState(0);
-    const [max, setMax] = useState(10);
+    const [max, setMax] = useState(1000);
+
+    const handleChange = (e) => {
+        setMin(e[0]);
+        setMax(e[1]);
+    };
 
     useEffect(() => {
-        console.log('min', min);
-        console.log('max', max);
+        onChange('price', [Number(min), Number(max)]);
     }, [min, max]);
 
     return (
@@ -37,12 +41,9 @@ const RangeSlider = () => {
             <div className={classes.rangeSlider__slider}>
                 <Slider
                     min={0}
-                    max={10}
+                    max={1000}
                     defaultValue={[2, 5]}
-                    onChange={(e) => {
-                        setMin(e[0]);
-                        setMax(e[1]);
-                    }}
+                    onChange={(e) => handleChange(e)}
                     value={[min, max]}
                     range
                 />

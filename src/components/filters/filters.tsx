@@ -1,41 +1,96 @@
 //@ts-nocheck
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CheckBoxField from '@/components/common/checkbox/checkbox';
 import RangeSlider from '@/components/rangeSlider/rangeSlider';
 import classes from './filters.module.scss';
+import Ingredients from '@/components/ingredients/ingredients';
+import qs from 'qs';
 
-const Filters = () => {
-    const [state, setState] = useState({
-        this: false,
-        andThis: false,
+const Filters = ({ ingredients }) => {
+    const [filter, setFilter] = useState({
+        dough: [],
+        sizes: [],
+        price: [],
+        ingredients: [],
     });
 
+    useEffect(() => {
+        console.log(qs.stringify(filter.sizes));
+    }, [filter]);
+
     const handleChange = (key, value) => {
-        setState((prevState) => ({
+        if (key === 'price') {
+            setFilter((prevState) => ({ ...prevState, [key]: value }));
+            return;
+        }
+
+        setFilter((prevState) => ({
             ...prevState,
-            [key]: value,
+            [key]: prevState[key].includes(value)
+                ? prevState[key].filter((item) => item !== value)
+                : [...prevState[key], value],
         }));
     };
 
     return (
-        <>
-            <CheckBoxField
-                name="this"
-                value={state.this}
-                onChange={handleChange}
-            >
-                Это
-            </CheckBoxField>
-            <CheckBoxField
-                name="andThis"
-                value={state.this}
-                onChange={handleChange}
-            >
-                Или это
-            </CheckBoxField>
-            <RangeSlider />
-        </>
+        <div className={classes.filters}>
+            <div className={classes.filters__title}>Фильтрация</div>
+
+            <div className={classes.filters__group}>
+                <div className={classes.filters__subtitle}>Тип теста</div>
+                <CheckBoxField
+                    name="dough"
+                    value="тонкое"
+                    onChange={handleChange}
+                    id="dough1"
+                >
+                    Тонкое
+                </CheckBoxField>
+                <CheckBoxField
+                    name="dough"
+                    value="толстое"
+                    onChange={handleChange}
+                    id="dough2"
+                >
+                    Традиционное
+                </CheckBoxField>
+            </div>
+
+            <div className={classes.filters__group}>
+                <div className={classes.filters__subtitle}>Цена от и до, ₽</div>
+                <RangeSlider onChange={handleChange} />
+            </div>
+
+            <div className={classes.filters__group}>
+                <div className={classes.filters__subtitle}>Размеры</div>
+                <CheckBoxField
+                    name="sizes"
+                    value={20}
+                    onChange={handleChange}
+                    id="20"
+                >
+                    20
+                </CheckBoxField>
+                <CheckBoxField
+                    name="sizes"
+                    value={30}
+                    onChange={handleChange}
+                    id="30"
+                >
+                    30
+                </CheckBoxField>
+            </div>
+
+            <div className={classes.filters__group}>
+                <div className={classes.filters__subtitle}>Ингредиенты</div>
+                <Ingredients
+                    onChange={handleChange}
+                    ingredients={ingredients}
+                    checkedIngredients={filter.ingredients}
+                />
+            </div>
+        </div>
     );
 };
 

@@ -24,7 +24,7 @@ const SearchInput = () => {
 
                 productService
                     .search(searchRequest)
-                    .then((data) => {
+                    .then(({ data }) => {
                         setProducts(data);
                         setProductsLoading(false);
                     })

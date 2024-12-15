@@ -1,0 +1,26 @@
+.ingredients {
+  &__list {
+    margin-top: 20px;
+    max-height: 170px;
+    overflow: hidden;
+  }
+
+  &__btn {
+    margin-top: 15px;
+  }
+
+  &__search {
+    border: 1px solid #333333;
+    border-radius: 12px;
+
+
+    & > div {
+      height: 50px;
+    }
+  }
+}
+._showAll {
+  .ingredients__list {
+    max-height: 100%;
+  }
+}

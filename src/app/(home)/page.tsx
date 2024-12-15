@@ -1,21 +1,17 @@
 //@ts-nocheck
-import Header from '@/components/header/header';
 import TopBar from '@/components/topBar/topBar';
 import PageBody from '@/components/pageBody/pageBody';
 import { categoriesService } from '@/services/categories.service';
-import { productService } from '@/services/product.service';
+import { ingredientsService } from '@/services/ingredients.service';
 
 export default async function Home() {
     const categories = await categoriesService.get();
-    const products = await productService.getAll();
+    const ingredients = await ingredientsService.get();
 
     return (
         <>
-            <Header />
-            <main>
-                <TopBar categories={categories} />
-                <PageBody products={products} />
-            </main>
+            <TopBar categories={categories} />
+            <PageBody ingredients={ingredients} categories={categories} />
         </>
     );
 }

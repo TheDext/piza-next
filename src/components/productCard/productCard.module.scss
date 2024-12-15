@@ -17,10 +17,16 @@
 
     }
   }
-  &__name {}
-  &__description {}
-  &__bottom {
+  &__name {
+    font-size: 20px;
+    font-weight: bold;
     margin-top: 10px;
+  }
+  &__description {
+   margin: 20px 0;
+  }
+  &__bottom {
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
