@@ -1,0 +1,126 @@
+.product {
+  margin-top: 50px;
+  &__row {
+    display: flex;
+  }
+
+  &__name {
+    font-size: 34px;
+    font-weight: bold;
+  }
+
+  &__column {
+    flex: 0 1 55%;
+
+    &._info {
+      flex: 0 1 45%;
+    }
+  }
+  &__img {
+    padding: 35px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .contour {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__l {
+        width: 460px;
+        height: 460px;
+        border: 3px dashed rgba(217, 214, 214, 0.64);
+        border-radius: 50%;
+
+        position: absolute;
+      }
+      &__m {
+        width: 380px;
+        height: 380px;
+        border: 3px dashed rgba(217, 214, 214, 0.64);
+        border-radius: 50%;
+        position: absolute;
+        z-index: 10;
+      }
+      &__s {
+        width: 300px;
+        height: 300px;
+        border: 3px dashed rgba(217, 214, 214, 0.64);
+        border-radius: 50%;
+        position: absolute;
+        z-index: 10;
+      }
+    }
+
+    &._l {
+      img {
+        max-width: 480px;
+      }
+    }
+    &._m {
+      img {
+        max-width: 400px;
+      }
+    }
+    &._s {
+      img {
+        max-width: 320px;
+      }
+    }
+    img {
+      min-width: 300px;
+      transform: translate(10px, 10px);
+
+      //потом удалить
+      width: 480px;
+    }
+  }
+  &__info {
+  }
+
+
+  &__ingredients {
+    margin-top: 35px;
+    max-height: 300px;
+  }
+  &__ingredientsTitle {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  &__ingredientsItems {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+  }
+ .productIngredient {
+   flex: 0 1 33.333%;
+   text-align: center;
+   cursor: pointer;
+
+   &._checked {
+     outline: 1px solid #da7327;
+     border-radius: 15px;
+   }
+    &__img {
+      img {
+        max-width: 110px;
+      }
+    }
+   &__name {
+     margin-top: 15px;
+   }
+   &__price {
+     margin-top: 10px;
+   }
+ }
+}

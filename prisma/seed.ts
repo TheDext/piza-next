@@ -131,11 +131,6 @@ async function up() {
             generateProductItem({
                 productId: pizza2.id,
                 pizzaType: 2,
-                size: 20,
-            }),
-            generateProductItem({
-                productId: pizza2.id,
-                pizzaType: 2,
                 size: 30,
             }),
             generateProductItem({

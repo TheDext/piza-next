@@ -1,0 +1,25 @@
+.productTypes {
+
+  margin-top: 15px;
+
+  &__row {
+    display: flex;
+    background: #ECECEC;
+    border-radius: 30px;
+    padding: 2px;
+  }
+
+  &__column {
+  padding: 10px 8px;
+    text-align: center;
+    flex: 0 1 50%;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  ._checked {
+    background: #ffffff;
+
+  }
+}
+

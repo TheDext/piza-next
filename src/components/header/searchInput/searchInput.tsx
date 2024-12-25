@@ -29,7 +29,6 @@ const SearchInput = () => {
                         setProductsLoading(false);
                     })
                     .catch((e) => {
-                        console.log(e);
                         throw e;
                     });
             }

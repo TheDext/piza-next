@@ -4,10 +4,15 @@ import { prisma } from '../../../../../../prisma/prisma-client';
 
 export async function GET(req: NextRequest, { params }) {
     const { id } = await params;
-    console.log('ID------------------------------------------------------');
-    const data = await prisma.product.findMany({
+
+    const data = await prisma.product.findFirst({
         where: {
             id: Number(id),
+        },
+        include: {
+            items: true,
+            ingredients: true,
+            category: true,
         },
     });
 

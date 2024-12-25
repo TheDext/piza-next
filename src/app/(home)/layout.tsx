@@ -1,3 +1,4 @@
+//@ts-nocheck
 import type { Metadata } from 'next';
 import '../../styles/index.scss';
 import Header from '@/components/header/header';
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 
 export default function HomeLayout({
     children,
+    modal,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
@@ -16,6 +18,7 @@ export default function HomeLayout({
         <>
             <Header />
             <main>{children}</main>
+            {modal}
         </>
     );
 }

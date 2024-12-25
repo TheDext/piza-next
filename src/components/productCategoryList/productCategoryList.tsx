@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 const ProductCategoryList = async ({ name, id }) => {
     const { data } = await productService.getProductsByCategoryId(id);
-    console.log(id);
 
     return (
         <div id={name} className={classes.productGroup}>

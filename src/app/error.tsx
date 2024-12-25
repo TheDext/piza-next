@@ -2,7 +2,6 @@
 'use client';
 
 const Error = (e) => {
-    console.log(e);
     return 'Some error';
 };
 

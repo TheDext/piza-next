@@ -15,10 +15,6 @@ const Filters = ({ ingredients }) => {
         ingredients: [],
     });
 
-    useEffect(() => {
-        console.log(qs.stringify(filter.sizes));
-    }, [filter]);
-
     const handleChange = (key, value) => {
         if (key === 'price') {
             setFilter((prevState) => ({ ...prevState, [key]: value }));
