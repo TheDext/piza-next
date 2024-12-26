@@ -9,10 +9,14 @@ import ProductSizes from '@/components/chooseProduct/productSizes/productSizes';
 import ProductTypes from '@/components/chooseProduct/productTypes/productTypes';
 
 const ChooseProduct = ({ product }) => {
-    const { availableTypes, activeSize, setActiveSize } =
-        useChooseProduct(product);
+    const {
+        availableTypes,
+        activeSize,
+        activeType,
+        setActiveSize,
+        setActiveType,
+    } = useChooseProduct(product);
 
-    console.log('availableTypes', availableTypes);
     const { ingredients, categoryId, imageUrl, items, name } = product;
 
     return (
@@ -34,7 +38,11 @@ const ChooseProduct = ({ product }) => {
                                 activeSize={activeSize}
                                 setActiveSize={setActiveSize}
                             />
-                            <ProductTypes availableTypes={availableTypes} />
+                            <ProductTypes
+                                availableTypes={availableTypes}
+                                activeType={activeType}
+                                setActiveType={setActiveType}
+                            />
                             <ProductIngredients ingredients={ingredients} />
                         </div>
                     </div>

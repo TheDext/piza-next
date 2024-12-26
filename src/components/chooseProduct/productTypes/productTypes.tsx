@@ -3,10 +3,8 @@ import pizzaTypes from '@/shared/constants/pizzaTypes';
 import classes from './productTypes.module.scss';
 import classNames from '../../../shared/lib/classNames';
 
-const ProductTypes = ({ availableTypes }) => {
-    console.log('availableTypes', availableTypes);
+const ProductTypes = ({ availableTypes, activeType, setActiveType }) => {
     const types = Object.keys(pizzaTypes).map((type) => Number(type));
-    console.log('types', types);
     return (
         <div className={classes.productTypes}>
             <div className={classes.productTypes__row}>
@@ -16,9 +14,10 @@ const ProductTypes = ({ availableTypes }) => {
                         key={type}
                         className={classNames(
                             classes.productTypes__column,
-                            {},
+                            { [classes._checked]: activeType === type },
                             []
                         )}
+                        onClick={() => setActiveType(type)}
                     >
                         {pizzaTypes[type]}
                     </button>
