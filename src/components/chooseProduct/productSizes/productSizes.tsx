@@ -18,7 +18,7 @@ const ProductSizes = ({ activeSize, setActiveSize }) => {
                             },
                             []
                         )}
-                        onClick={() => setActiveSize(size)}
+                        onClick={() => setActiveSize(Number(size))}
                     >
                         {pizzaSizes[size]}
                     </button>

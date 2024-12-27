@@ -17,7 +17,7 @@ const ProductTypes = ({ availableTypes, activeType, setActiveType }) => {
                             { [classes._checked]: activeType === type },
                             []
                         )}
-                        onClick={() => setActiveType(type)}
+                        onClick={() => setActiveType(Number(type))}
                     >
                         {pizzaTypes[type]}
                     </button>

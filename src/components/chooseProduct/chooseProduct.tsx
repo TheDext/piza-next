@@ -15,9 +15,14 @@ const ChooseProduct = ({ product }) => {
         activeType,
         setActiveSize,
         setActiveType,
+        setActiveProductId,
+        ingredients,
+        categoryId,
+        imageUrl,
+        items,
+        name,
+        price,
     } = useChooseProduct(product);
-
-    const { ingredients, categoryId, imageUrl, items, name } = product;
 
     return (
         <div className={classes.product}>
@@ -34,6 +39,7 @@ const ChooseProduct = ({ product }) => {
                     >
                         <div className={classes.product__info}>
                             <div className={classes.product__name}>{name}</div>
+                            <div>{price} $</div>
                             <ProductSizes
                                 activeSize={activeSize}
                                 setActiveSize={setActiveSize}

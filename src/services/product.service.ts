@@ -13,10 +13,14 @@ export const productService = {
         return data;
     },
     getById: async (id) => {
-        const { data } = await httpService.get(
-            `/api/products/byProductId/${id}`
-        );
-        return data;
+        try {
+            const { data } = await httpService.get(
+                `/api/products/byProductId/${id}`
+            );
+            return data;
+        } catch (e) {
+            console.error(e);
+        }
     },
     getProductsByCategoryId: async (categoryId) => {
         const { data } = await httpService.get(
